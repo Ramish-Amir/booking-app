@@ -8,7 +8,7 @@
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ramish Amir",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.1",

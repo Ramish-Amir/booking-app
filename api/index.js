@@ -4,6 +4,7 @@ import authRoutes from './routes/auth.js'
 import userRoutes from './routes/users.js'
 import hotelRoutes from './routes/hotels.js'
 import roomRoutes from './routes/rooms.js'
+import cookieParser from 'cookie-parser'
 
 
 const PORT = process.env.PORT || 8000
@@ -32,9 +33,10 @@ mongoose.connection.on("connected", () => {
     console.log('Mongo DB connected')
 })
 
+// Middlewares
+app.use(cookieParser())
 app.use(express.json())
 
-// Middlewares
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/hotels', hotelRoutes)

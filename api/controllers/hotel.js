@@ -77,3 +77,19 @@ export const deleteHotel = async (req, res) => {
     }
 }
 
+export const countByCities =  async (req, res) => {
+    const cities = req.query?.city.split(',')
+    console.log(cities)
+    try {
+        const list = await Promise.all(
+            cities.map(city => 
+                Hotel.countDocuments({city})
+            )
+        )
+        res.status(200).json(list)
+    } catch (error) {
+        res.status(500).json({error})
+    }
+
+}
+

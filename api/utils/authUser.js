@@ -17,8 +17,6 @@ export const verifyToken = (req, res, next) => {
 
 export const verifyUser = (req, res, next) => {
     verifyToken(req, res, () => {
-        console.log(req?.body?.user)
-        console.log(req.params.id)
         if (req.body?.user?.id === req.params?.id || req.body?.user?.isAdmin) {
             next()
         } else {
@@ -29,7 +27,7 @@ export const verifyUser = (req, res, next) => {
 
 export const verifyAdmin = (req, res, next) => {
     verifyToken(req, res, () => {
-        if (req.user?.isAdmin) {
+        if (req.body?.user?.isAdmin) {
             next()
         } else {
             res.sendStatus(403)

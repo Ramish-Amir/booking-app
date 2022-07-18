@@ -1,6 +1,9 @@
+import useFetch from "../../hoooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
+  const {data, loading, error, reFetch} = useFetch('/hotels')
+  console.log(data)
   return (
     <div className="featured">
       <div className="featuredItem">
